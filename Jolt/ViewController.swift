@@ -89,8 +89,10 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
 
     @IBAction func sendNotification(sender: UIButton) {
         if (client?.isDeviceConnected == true) {
-            var id = NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
-            client?.notificationManager.sendMessageWithTileID(tileID: id, title: "Notification", body: "Testing a notification", timeStamp: "date", flags: <#T##MSBNotificationMessageFlags#>, completionHandler: <#T##((NSError!) -> Void)!##((NSError!) -> Void)!##(NSError!) -> Void#>)
+            let id = NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
+            client?.notificationManager.sendMessageWithTileID(id, title: "Notification", body: "Testing a notification", timeStamp: NSDate(), flags: MSBNotificationMessageFlags.ShowDialog, completionHandler: { (a) -> Void in
+                
+            })
         }
     }
     

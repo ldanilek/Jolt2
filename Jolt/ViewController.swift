@@ -15,7 +15,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     var heartRateUpdating: Bool = false
     var gyroUpdating: Bool = false
     var lastAlert = NSDate(timeIntervalSince1970: 0);
-    var dataPoints: Array<Int> = []
+    var dataPoints: Array<Double> = []
     var fiveRates: Array<Int> = []
     var lastMoved = NSDate(timeIntervalSince1970: 0);
 
@@ -71,7 +71,10 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     }
     
     func storeData(point : Double) {
-        
+        if (self.dataPoints.count > 499) {
+            self.dataPoints = Array(self.dataPoints.dropFirst())
+        }
+        self.dataPoints.append(point)
     }
     
     func startHeartrateUpdates() {

@@ -15,6 +15,8 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     var heartRateUpdating: Bool = false
     var gyroUpdating: Bool = false
     var lastAlert = NSDate(timeIntervalSince1970: 0);
+    var dataPoints: Array<Int> = []
+    var fiveRates: Array<Int> = []
 
     override func viewDidLoad() {
         MSBClientManager.sharedManager().delegate = self
@@ -57,6 +59,20 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func average(array : Array<Int>) -> Double {
+        var sum = 0
+        for a in array {
+            sum += a
+        }
+        var retval: Double
+        retval = Double(sum)
+        return (retval/5)
+    }
+    
+    func storeData(point : Double) {
+        
+    }
+    
     func startHeartrateUpdates() {
         if self.heartRateUpdating {
             return
@@ -68,6 +84,13 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                     print("error \(e.description)")
                 }
                 let rate = heartRateData.heartRate
+                //add the data to our storage
+                self.fiveRates.append(Int(rate))
+                if (self.fiveRates.count > 4) {
+                    let avg = self.average(self.fiveRates)
+                    self.storeData(avg)
+                    self.fiveRates = []
+                }
                 //var quality = heartRateData.quality
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                     self.heartrateLabel.text = "\(rate)"

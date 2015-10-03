@@ -17,6 +17,9 @@
 		9B69EC701BC05D5D000EF102 /* MicrosoftBandKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B69EC6F1BC05D5D000EF102 /* MicrosoftBandKit_iOS.framework */; settings = {ASSET_TAGS = (); }; };
 		9B69EC721BC05D79000EF102 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B69EC711BC05D79000EF102 /* CoreBluetooth.framework */; };
 		9B69EC761BC064B5000EF102 /* BandKitInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69EC751BC064B5000EF102 /* BandKitInterface.m */; settings = {ASSET_TAGS = (); }; };
+		9B89AD3F1BC075EF004F65F3 /* jolt-46.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD3E1BC075EF004F65F3 /* jolt-46.png */; settings = {ASSET_TAGS = (); }; };
+		9B89AD411BC075F6004F65F3 /* Jot-2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD401BC075F6004F65F3 /* Jot-2.svg */; settings = {ASSET_TAGS = (); }; };
+		9B89AD431BC07649004F65F3 /* Jolt-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD421BC07649004F65F3 /* Jolt-24.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		9B69EC731BC064B5000EF102 /* Jolt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jolt-Bridging-Header.h"; sourceTree = "<group>"; };
 		9B69EC741BC064B5000EF102 /* BandKitInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BandKitInterface.h; sourceTree = "<group>"; };
 		9B69EC751BC064B5000EF102 /* BandKitInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BandKitInterface.m; sourceTree = "<group>"; };
+		9B89AD3E1BC075EF004F65F3 /* jolt-46.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jolt-46.png"; sourceTree = "<group>"; };
+		9B89AD401BC075F6004F65F3 /* Jot-2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Jot-2.svg"; sourceTree = "<group>"; };
+		9B89AD421BC07649004F65F3 /* Jolt-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jolt-24.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,9 @@
 				9B69EC481BC05B9E000EF102 /* Assets.xcassets */,
 				9B69EC4A1BC05B9E000EF102 /* LaunchScreen.storyboard */,
 				9B69EC4D1BC05B9E000EF102 /* Info.plist */,
+				9B89AD3E1BC075EF004F65F3 /* jolt-46.png */,
+				9B89AD401BC075F6004F65F3 /* Jot-2.svg */,
+				9B89AD421BC07649004F65F3 /* Jolt-24.png */,
 			);
 			path = Jolt;
 			sourceTree = "<group>";
@@ -246,7 +255,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B69EC4C1BC05B9E000EF102 /* LaunchScreen.storyboard in Resources */,
+				9B89AD411BC075F6004F65F3 /* Jot-2.svg in Resources */,
 				9B69EC491BC05B9E000EF102 /* Assets.xcassets in Resources */,
+				9B89AD3F1BC075EF004F65F3 /* jolt-46.png in Resources */,
+				9B89AD431BC07649004F65F3 /* Jolt-24.png in Resources */,
 				9B69EC471BC05B9E000EF102 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

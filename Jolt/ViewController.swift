@@ -89,10 +89,27 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
 
     @IBAction func sendNotification(sender: UIButton) {
         if (client?.isDeviceConnected == true) {
-            let id = NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
-            client?.notificationManager.sendMessageWithTileID(id, title: "Notification", body: "Testing a notification", timeStamp: NSDate(), flags: MSBNotificationMessageFlags.ShowDialog, completionHandler: { (a) -> Void in
-                //sajdhklajhdf
-            })
+            do {
+                let id = NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
+
+                let image = try MSBIcon(UIImage: UIImage(contentsOfFile: "Jolt-46.png"))
+                    
+                let smallImage = try MSBIcon(UIImage: UIImage(contentsOfFile: "Jolt-24.png"))
+
+                var tileName = "Notification"
+              
+                let tile = try MSBTile(id: id, name: tileName, tileIcon: image, smallIcon: smallImage)
+               
+              
+                client?.tileManager.addTile(tile, completionHandler: { (a) -> Void in})
+                
+                client?.notificationManager.sendMessageWithTileID(id, title: tileName, body: "Testing a notification", timeStamp: NSDate(), flags: MSBNotificationMessageFlags.ShowDialog, completionHandler: { (a) -> Void in
+                    
+                })
+            } catch {
+                print("except")
+            }
+            
         }
     }
     

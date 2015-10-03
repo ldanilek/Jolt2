@@ -17,6 +17,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     var lastAlert = NSDate(timeIntervalSince1970: 0);
     var dataPoints: Array<Int> = []
     var fiveRates: Array<Int> = []
+    var lastMoved = NSDate(timeIntervalSince1970: 0);
 
     override func viewDidLoad() {
         MSBClientManager.sharedManager().delegate = self
@@ -85,22 +86,29 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 }
                 let rate = heartRateData.heartRate
                 //add the data to our storage
-                self.fiveRates.append(Int(rate))
-                if (self.fiveRates.count > 4) {
-                    let avg = self.average(self.fiveRates)
-                    self.storeData(avg)
-                    self.fiveRates = []
-                }
-                //var quality = heartRateData.quality
-                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                    self.heartrateLabel.text = "\(rate)"
-                    let currentDate = NSDate()
-                    print("Heart rate detected \(rate)")
-                    if rate < 70 && currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
-                        self.sendNotification(nil)
-                        self.lastAlert = currentDate
+                let currentTime = NSDate()
+                if currentTime.timeIntervalSinceDate(self.lastMoved) < 10 {
+                    self.fiveRates.append(Int(rate))
+                    print("store awake data \(rate)")
+                    if (self.fiveRates.count > 4) {
+                        let avg = self.average(self.fiveRates)
+                        self.storeData(avg)
+                        self.fiveRates = []
                     }
-                })
+                }
+                else
+                {
+                    //var quality = heartRateData.quality
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        self.heartrateLabel.text = "\(rate)"
+                        let currentDate = NSDate()
+                        print("Heart rate detected \(rate)")
+                        if rate < 70 && currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
+                            self.sendNotification(nil)
+                            self.lastAlert = currentDate
+                        }
+                    })
+                }
             })
         } catch {
             heartRateUpdating = false
@@ -157,7 +165,10 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 let newX = gyroscopeData.x
                 let newY = gyroscopeData.y
                 let newZ = gyroscopeData.z
-                print("x: \(newX), y: \(newY), z: \(newZ)")
+                if abs(newX) > 20 || abs(newY) > 20 || abs(newZ) > 20 {
+                    self.lastMoved = NSDate()
+                    print("Movement detected");
+                }
             })
         } catch {
             gyroUpdating = false
@@ -173,6 +184,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     func clientManager(clientManager: MSBClientManager!, clientDidConnect client: MSBClient!) {
         self.statusLabel.text = "did connect"
         self.startHeartrateUpdates()
+        self.startGyroSensing()
     }
     
     func clientManager(clientManager: MSBClientManager!, clientDidDisconnect client: MSBClient!) {

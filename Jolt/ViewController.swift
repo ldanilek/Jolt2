@@ -13,6 +13,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     
     var client: MSBClient?
     var heartRateUpdating: Bool = false
+    var gyroUpdating: Bool = false
     var lastAlert = NSDate(timeIntervalSince1970: 0);
 
     override func viewDidLoad() {
@@ -46,6 +47,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 })
             }
         }
+        self.startGyroSensing()
     }
     
     @IBOutlet weak var statusLabel: UILabel!
@@ -70,6 +72,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                     self.heartrateLabel.text = "\(rate)"
                     let currentDate = NSDate()
+                    print("Heart rate detected \(rate)")
                     if rate < 70 && currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
                         self.sendNotification(nil)
                         self.lastAlert = currentDate
@@ -122,18 +125,22 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
         }
     }
     
-    /*func startGyroSensing() {
+    func startGyroSensing() {
+        if gyroUpdating {
+            gyroUpdating = true
+        }
         do {
             try self.client?.sensorManager.startGyroscopeUpdatesToQueue(NSOperationQueue(), withHandler: { (gyroscopeData, error) -> Void in
                 let newX = gyroscopeData.x
                 let newY = gyroscopeData.y
                 let newZ = gyroscopeData.z
-                
+                print("x: \(newX), y: \(newY), z: \(newZ)")
             })
         } catch {
+            gyroUpdating = false
             print("gyro had exception")
         }
-    }*/
+    }
     
     func clientManager(clientManager: MSBClientManager!, client: MSBClient!, didFailToConnectWithError error: NSError!) {
         self.statusLabel.text = "connection failed"

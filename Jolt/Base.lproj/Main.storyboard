@@ -56,7 +56,7 @@
                                 <rect key="frame" x="129" y="79" width="106" height="59"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
-                                <color key="textColor" red="0.76862745098039209" green="0.14117647058823529" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.6470588235294118" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xE4-Hh-SuV">
@@ -113,6 +113,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="256" y="241"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DJY-Aj-LWg">
+            <objects>
+                <viewController id="Ayq-9W-Hkw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JBm-a2-h2c"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Fp-CX-lD9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iXt-cd-Sul">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RR-yl-BuA">
+                                <rect key="frame" x="29" y="79" width="97" height="59"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzP-hT-s3J">
+                                <rect key="frame" x="127" y="79" width="106" height="59"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                                <color key="textColor" red="0.1137254902" green="0.21176470589999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WS-Xf-ZFp">
+                                <rect key="frame" x="61" y="155" width="128" height="48"/>
+                                <color key="backgroundColor" red="0.19215686274509802" green="0.35686274509803922" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Turn Off">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.77009828629999999" green="0.26694808469999998" blue="0.1918472782" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="WzP-hT-s3J" firstAttribute="top" secondItem="JBm-a2-h2c" secondAttribute="bottom" constant="59" id="0Kx-kk-CAw"/>
+                            <constraint firstItem="4RR-yl-BuA" firstAttribute="top" secondItem="JBm-a2-h2c" secondAttribute="bottom" constant="59" id="3vu-bZ-8g8"/>
+                            <constraint firstItem="9WS-Xf-ZFp" firstAttribute="leading" secondItem="iXt-cd-Sul" secondAttribute="leadingMargin" constant="45" id="54W-uX-3yc"/>
+                            <constraint firstItem="9WS-Xf-ZFp" firstAttribute="top" secondItem="4RR-yl-BuA" secondAttribute="bottom" constant="8" id="Csh-Cg-eap"/>
+                            <constraint firstItem="WzP-hT-s3J" firstAttribute="leading" secondItem="4RR-yl-BuA" secondAttribute="trailing" constant="1" id="qmG-Zd-4dD"/>
+                            <constraint firstItem="WzP-hT-s3J" firstAttribute="leading" secondItem="4RR-yl-BuA" secondAttribute="trailing" constant="1" id="rxq-z4-dXX"/>
+                            <constraint firstItem="4RR-yl-BuA" firstAttribute="leading" secondItem="iXt-cd-Sul" secondAttribute="leadingMargin" constant="13" id="xgh-if-p5u"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1RR-OU-MAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="960" y="241"/>
         </scene>
     </scenes>
     <resources>

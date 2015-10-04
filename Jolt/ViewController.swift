@@ -116,6 +116,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 //add the data to our storage
                 let currentTime = NSDate()
                 if currentTime.timeIntervalSinceDate(self.lastMoved) < 10 {
+                    status_sleep.text = "awake"
                     self.fiveRates.append(Int(rate))
                     print("store awake data \(rate)")
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in

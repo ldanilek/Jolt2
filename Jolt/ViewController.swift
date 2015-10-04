@@ -106,7 +106,13 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 if let e = error {
                     print("error \(e.description)")
                 }
+                
+                //print information to the console
+                let (avg, std) = self.calculateAverageAndStandardDeviation()
+                print("standard deviation : \(std) average : \(avg)")
+                
                 let rate = heartRateData.heartRate
+                
                 //add the data to our storage
                 let currentTime = NSDate()
                 if currentTime.timeIntervalSinceDate(self.lastMoved) < 10 {

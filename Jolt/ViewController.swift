@@ -187,6 +187,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 print("except \(e) \(error)")
             }
             */
+            status_sleep.text = "asleep"
             self.client?.notificationManager.vibrateWithType(MSBNotificationVibrationType.Alarm, completionHandler: { (e) -> Void in
                 
             })

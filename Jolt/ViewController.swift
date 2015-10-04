@@ -179,7 +179,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                         
                     }
                 } else {
-                    if NSDate().timeIntervalSinceDate(self.lastAlert) > 3 {
+                    if NSDate().timeIntervalSinceDate(self.lastAlert) > 2 {
                         NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                             self.sendNotification(nil)
                         })
@@ -220,7 +220,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                 showingRooster = true
             }
             status_sleep.text = "asleep"
-            self.client?.notificationManager.vibrateWithType(MSBNotificationVibrationType.Alarm, completionHandler: { (e) -> Void in
+            self.client?.notificationManager.vibrateWithType(MSBNotificationVibrationType.Timer, completionHandler: { (e) -> Void in
                 
             })
             //self.NSString *path = [[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] pathForResource:@"Ascending" ofType:@"aiff"]

@@ -23,6 +23,14 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
     @IBOutlet weak var moving: UILabel!
     var showingRooster = false
     
+    var highPriority: Bool = NSUserDefaults.standardUserDefaults().boolForKey("priority") {
+        didSet {
+            NSUserDefaults.standardUserDefaults().setBool(highPriority, forKey: "priority")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
+    
+    
     override func viewDidLoad() {
         MSBClientManager.sharedManager().delegate = self
         if let attachedClient = MSBClientManager.sharedManager().attachedClients().first as? MSBClient {
@@ -153,7 +161,8 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                             if currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
                                 let (avg, std) = self.calculateAverageAndStandardDeviation()
                                 let testValue = self.average(self.fiveRatesForCompare)
-                                if (avg-std) > testValue && self.dataPoints.count > 3 {
+                                let stdevs = self.highPriority ? 1.0 : 2.0;
+                                if (avg - std * stdevs) > testValue && self.dataPoints.count > 3 {
                                     print("asleep!!! value is \(testValue), avg is \(avg), std is \(std)")
                                     self.sendNotification(nil)
                                     self.lastAlert = currentDate
@@ -199,7 +208,6 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
             self.client?.notificationManager.vibrateWithType(MSBNotificationVibrationType.Alarm, completionHandler: { (e) -> Void in
                 
             })
-            
         }
     }
     
@@ -262,13 +270,14 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
             let tile = try MSBTile(id: id, name: tileName, tileIcon: image, smallIcon: smallImage)
             e = "wtf?"
             
-            let panel = MSBPageFlowPanel(rect: MSBPageRect(x: 0, y: 0, width: 245, height: 102))
+            let panel = MSBPageFlowPanel(rect: MSBPageRect(x: 0, y: 0, width: 243, height: 102))
             panel.horizontalAlignment = MSBPageHorizontalAlignment.Left
             panel.verticalAlignment = MSBPageVerticalAlignment.Top
-            let textButton = MSBPageTextButton(rect: MSBPageRect(x: 0, y: 0, width: 245, height: 102))
+            let textButton = MSBPageTextButton(rect: MSBPageRect(x: 0, y: 0, width: 240, height: 102))
             textButton.elementId = 1;
             textButton.margins = MSBPageMargins(left: 15, top: 0, right: 15, bottom: 0)
-            textButton.pressedColor = MSBColor(red: 0xFF, green: 0xFF, blue: 0xFF)
+            //5420A4
+            textButton.pressedColor = MSBColor(red: 0x54, green: 0x20, blue: 0xA4)
             panel.addElement(textButton)
             let layout = MSBPageLayout()
             // create the page layout
@@ -283,7 +292,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                 let textButtonData = try MSBPageTextButtonData(elementId: 1, text: "Awake Now")
                 let pageData = MSBPageData(id: buttonPageId, layoutIndex: 0, value: [textButtonData])
                 self.client?.tileManager.setPages([pageData], tileId: id, completionHandler: { (err) -> Void in
-                
+                    
                 })
             } catch {
                 print("error making button data \(error)")
@@ -311,7 +320,9 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
     }
     
     func client(client: MSBClient!, buttonDidPress event: MSBTileButtonEvent!) {
-        
+        if self.showingRooster {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     func client(client: MSBClient!, tileDidOpen event: MSBTileEvent!) {

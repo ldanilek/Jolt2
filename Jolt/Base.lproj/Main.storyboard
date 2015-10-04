@@ -73,8 +73,8 @@
                                 <color key="textColor" red="0.35294117650000001" green="0.65490196079999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thl-pA-3Om">
-                                <rect key="frame" x="140" y="79" width="106" height="59"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="awake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thl-pA-3Om">
+                                <rect key="frame" x="140" y="79" width="145" height="59"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
                                 <color key="textColor" red="1" green="0.6470588235294118" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
@@ -152,13 +152,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzP-hT-s3J">
-                                <rect key="frame" x="127" y="79" width="106" height="59"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
-                                <color key="textColor" red="0.1137254902" green="0.21176470589999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WS-Xf-ZFp">
                                 <rect key="frame" x="65" y="146" width="128" height="48"/>
                                 <animations/>
@@ -172,6 +165,13 @@
                                     <action selector="turnOff:" destination="Ayq-9W-Hkw" eventType="touchUpInside" id="Hhk-Ya-lz9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asleep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzP-hT-s3J">
+                                <rect key="frame" x="134" y="79" width="147" height="59"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                                <color key="textColor" red="0.1137254902" green="0.21176470589999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.75686274509803919" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -180,8 +180,7 @@
                             <constraint firstItem="4RR-yl-BuA" firstAttribute="top" secondItem="JBm-a2-h2c" secondAttribute="bottom" constant="59" id="3vu-bZ-8g8"/>
                             <constraint firstItem="9WS-Xf-ZFp" firstAttribute="leading" secondItem="iXt-cd-Sul" secondAttribute="leadingMargin" constant="45" id="54W-uX-3yc"/>
                             <constraint firstItem="9WS-Xf-ZFp" firstAttribute="top" secondItem="4RR-yl-BuA" secondAttribute="bottom" constant="8" id="Csh-Cg-eap"/>
-                            <constraint firstItem="WzP-hT-s3J" firstAttribute="leading" secondItem="4RR-yl-BuA" secondAttribute="trailing" constant="1" id="qmG-Zd-4dD"/>
-                            <constraint firstItem="WzP-hT-s3J" firstAttribute="leading" secondItem="4RR-yl-BuA" secondAttribute="trailing" constant="1" id="rxq-z4-dXX"/>
+                            <constraint firstItem="WzP-hT-s3J" firstAttribute="leading" secondItem="4RR-yl-BuA" secondAttribute="trailing" constant="8" id="J97-lD-oIz"/>
                             <constraint firstItem="4RR-yl-BuA" firstAttribute="leading" secondItem="iXt-cd-Sul" secondAttribute="leadingMargin" constant="13" id="xgh-if-p5u"/>
                         </constraints>
                     </view>

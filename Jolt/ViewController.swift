@@ -78,6 +78,22 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
         self.dataPoints.append(point)
     }
     
+    func calculateAverageAndStandardDeviation() -> (Double, Double) {
+        var avg = Double(0)
+        for a in self.dataPoints {
+            avg += a
+        }
+        avg /= Double(self.dataPoints.count)
+        
+        var variance = Double(0)
+        for a in self.dataPoints {
+            variance += (a - avg)*(a - avg)
+        }
+        variance /= Double(self.dataPoints.count) - 1.0
+        
+        return (avg, sqrt(variance))
+    }
+    
     func startHeartrateUpdates() {
         status_sleep.text = "awake"
         if self.heartRateUpdating {

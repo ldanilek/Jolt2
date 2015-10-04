@@ -199,9 +199,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
             self.client?.notificationManager.vibrateWithType(MSBNotificationVibrationType.Alarm, completionHandler: { (e) -> Void in
                 
             })
-            self.NSString *path = [[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] pathForResource:@"Ascending" ofType:@"aiff"]
-            self.AudioServicesCreateSystemSoundID("Ascending", &path)
-            self.AudioServicesPlayAlertSound(alarum) //players gonna play
+            
         }
     }
     

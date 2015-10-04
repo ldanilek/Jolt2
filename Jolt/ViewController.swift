@@ -119,7 +119,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                     self.fiveRates.append(Int(rate))
                     print("store awake data \(rate)")
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                        self.heartrateLabel.text = "a: \(rate)"
+                        self.heartrateLabel.text = "\(rate)"
                     })
                     if (self.fiveRates.count > 4) {
                         let avg = self.average(self.fiveRates)

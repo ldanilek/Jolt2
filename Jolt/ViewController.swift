@@ -159,7 +159,9 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                     }
                 } else {
                     if NSDate().timeIntervalSinceDate(self.lastAlert) > 3 {
-                        self.sendNotification(nil)
+                        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                            self.sendNotification(nil)
+                        })
                         self.lastAlert = NSDate()
                     }
                 }
@@ -182,9 +184,10 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     }
     
     @IBAction func sendNotification(sender: UIButton?) {
-        if (client?.isDeviceConnected == true) {
-            
-            self.performSegueWithIdentifier("rooster", sender: nil)
+        if client?.isDeviceConnected == true {
+            if self.presentedViewController == nil {
+                self.performSegueWithIdentifier("rooster", sender: nil)
+            }
             status_sleep.text = "asleep"
             self.client?.notificationManager.vibrateWithType(MSBNotificationVibrationType.Alarm, completionHandler: { (e) -> Void in
                 

@@ -207,7 +207,10 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 if abs(newX) > 20 || abs(newY) > 20 || abs(newZ) > 20 {
                     self.lastMoved = NSDate()
                     print("Movement detected");
-                    self.moving.text = "Moving"
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        self.moving.text = "Moving"
+                    })
+                    
                 }
             })
         } catch {

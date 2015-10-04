@@ -96,6 +96,9 @@
                                 <rect key="frame" x="276" y="434" width="51" height="31"/>
                                 <animations/>
                                 <color key="onTintColor" red="0.35294117650000001" green="0.65490196079999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="priorityChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="UDq-rx-QAL"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B15-6x-nxZ">
                                 <rect key="frame" x="214" y="434" width="44" height="30"/>
@@ -173,6 +176,7 @@
                     <connections>
                         <outlet property="heartrateLabel" destination="xE4-Hh-SuV" id="7Gt-th-QeK"/>
                         <outlet property="moving" destination="vfD-lf-4sd" id="ANb-7A-0l9"/>
+                        <outlet property="prioritySwitch" destination="vfb-Bz-Aop" id="DCm-Ka-XUK"/>
                         <outlet property="status_sleep" destination="Thl-pA-3Om" id="nYk-CZ-HKi"/>
                         <segue destination="Ayq-9W-Hkw" kind="presentation" identifier="rooster" id="zMt-UM-MPJ"/>
                     </connections>

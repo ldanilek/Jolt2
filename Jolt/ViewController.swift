@@ -40,6 +40,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
         }
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.prioritySwitch.on = self.highPriority
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -163,7 +164,8 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                                 let (avg, std) = self.calculateAverageAndStandardDeviation()
                                 let testValue = self.average(self.fiveRatesForCompare)
                                 let stdevs = self.highPriority ? 1.0 : 2.0;
-                                if (avg - std * stdevs) > testValue && self.dataPoints.count > 3 {
+                                let percentageCutoff = 0.9*avg
+                                if (avg - std * stdevs) > testValue && percentageCutoff > testValue && self.dataPoints.count > 3 {
                                     print("asleep!!! value is \(testValue), avg is \(avg), std is \(std)")
                                     self.sendNotification(nil)
                                     self.lastAlert = currentDate
@@ -210,12 +212,12 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                 
             })
             //self.NSString *path = [[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] pathForResource:@"Ascending" ofType:@"aiff"]
-            let path = NSBundle(identifier: "com.apple.UIKit")?.URLForResource("Ascending", withExtension: "aiff")
-            var systemSoundId: SystemSoundID = 0
-            AudioServicesCreateSystemSoundID(path!, &systemSoundId)
-            AudioServicesPlayAlertSoundWithCompletion(systemSoundId, { () -> Void in
+            //let path = NSBundle(identifier: "com.apple.UIKit")?.URLForResource("Ascending", withExtension: "aiff")
+            //var systemSoundId: SystemSoundID = 0
+            //AudioServicesCreateSystemSoundID(path!, &systemSoundId)
+            //AudioServicesPlayAlertSoundWithCompletion(systemSoundId, { () -> Void in
                 
-            })
+            //})
             //self.AudioServicesCreateSystemSoundID("Ascending", &path)
             //self.AudioServicesPlayAlertSound(alarum) //players gonna play
         }
@@ -338,6 +340,10 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
     func client(client: MSBClient!, tileDidOpen event: MSBTileEvent!) {
         print("tile opened")
     }
+    @IBAction func priorityChanged(sender: UISwitch) {
+        self.highPriority = sender.on
+    }
     
+    @IBOutlet weak var prioritySwitch: UISwitch!
     @IBOutlet weak var heartrateLabel: UILabel!
 }

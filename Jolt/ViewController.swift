@@ -258,9 +258,6 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
             
             client?.tileManager.addTile(tile, completionHandler: { (a) -> Void in})
             
-            client?.notificationManager.sendMessageWithTileID(id, title: tileName, body: "Testing a notification", timeStamp: NSDate(), flags: MSBNotificationMessageFlags.ShowDialog, completionHandler: { (a) -> Void in
-                
-            })
         } catch {
             print("except \(e) \(error)")
         }

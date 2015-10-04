@@ -93,6 +93,9 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 if currentTime.timeIntervalSinceDate(self.lastMoved) < 10 {
                     self.fiveRates.append(Int(rate))
                     print("store awake data \(rate)")
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        self.heartrateLabel.text = "a: \(rate)"
+                    })
                     if (self.fiveRates.count > 4) {
                         let avg = self.average(self.fiveRates)
                         self.storeData(avg)

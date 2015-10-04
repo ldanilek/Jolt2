@@ -139,7 +139,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                         if rate < 70 && currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
                             let (avg, std) = self.calculateAverageAndStandardDeviation()
                             let testValue = self.average(self.fiveRatesForCompare)
-                            if avg - testValue > 8 && (avg-std) > testValue {
+                            if avg - testValue > 8 && (avg-std) > testValue && self.dataPoints.count > 100 {
                                 self.sendNotification(nil)
                                 self.lastAlert = currentDate
                             }

@@ -144,18 +144,27 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                     }
                     //var quality = heartRateData.quality
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                        self.heartrateLabel.text = "\(rate)"
-                        let currentDate = NSDate()
-                        print("Heart rate detected \(rate)")
-                        if currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
-                            let (avg, std) = self.calculateAverageAndStandardDeviation()
-                            let testValue = self.average(self.fiveRatesForCompare)
-                            if (avg-std) > testValue && self.dataPoints.count > 3 {
-                                print("asleep!!! value is \(testValue), avg is \(avg), std is \(std)")
+                        if self.presentedViewController == nil {
+                            
+                            self.heartrateLabel.text = "\(rate)"
+                            let currentDate = NSDate()
+                            print("Heart rate detected \(rate)")
+                            if currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
+                                let (avg, std) = self.calculateAverageAndStandardDeviation()
+                                let testValue = self.average(self.fiveRatesForCompare)
+                                if (avg-std) > testValue && self.dataPoints.count > 3 {
+                                    print("asleep!!! value is \(testValue), avg is \(avg), std is \(std)")
+                                    self.sendNotification(nil)
+                                    self.lastAlert = currentDate
+                                }
+                            }
+                        } else {
+                            if NSDate().timeIntervalSinceDate(self.lastAlert) > 3 {
                                 self.sendNotification(nil)
-                                self.lastAlert = currentDate
+                                self.lastAlert = NSDate()
                             }
                         }
+
                     })
                 }
             })

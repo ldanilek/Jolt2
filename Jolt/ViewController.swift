@@ -220,7 +220,6 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
             gyroUpdating = true
         }
         do {
-               self.moving.text = "Moving"
             try self.client?.sensorManager.startGyroscopeUpdatesToQueue(NSOperationQueue(), withHandler: { (gyroscopeData, error) -> Void in
                 let newX = gyroscopeData.x
                 let newY = gyroscopeData.y
@@ -228,6 +227,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 if abs(newX) > 20 || abs(newY) > 20 || abs(newZ) > 20 {
                     self.lastMoved = NSDate()
                     print("Movement detected");
+                    self.moving.text = "Moving"
                 }
             })
         } catch {

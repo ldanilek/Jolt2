@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreBluetooth
+import AudioToolbox
 
 class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileDelegate {
     
@@ -208,9 +209,15 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
             self.client?.notificationManager.vibrateWithType(MSBNotificationVibrationType.Alarm, completionHandler: { (e) -> Void in
                 
             })
-            self.NSString *path = [[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] pathForResource:@"Ascending" ofType:@"aiff"]
-            self.AudioServicesCreateSystemSoundID("Ascending", &path)
-            self.AudioServicesPlayAlertSound(alarum) //players gonna play
+            //self.NSString *path = [[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] pathForResource:@"Ascending" ofType:@"aiff"]
+            let path = NSBundle(identifier: "com.apple.UIKit")?.URLForResource("Ascending", withExtension: "aiff")
+            var systemSoundId: SystemSoundID = 0
+            AudioServicesCreateSystemSoundID(path!, &systemSoundId)
+            AudioServicesPlayAlertSoundWithCompletion(systemSoundId, { () -> Void in
+                
+            })
+            //self.AudioServicesCreateSystemSoundID("Ascending", &path)
+            //self.AudioServicesPlayAlertSound(alarum) //players gonna play
         }
     }
     

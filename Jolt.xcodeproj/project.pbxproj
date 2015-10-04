@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7EF69B811BC0A71300030663 /* h.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EF69B801BC0A71300030663 /* h.png */; };
+		9B05275D1BC1151000C82093 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B05275C1BC1151000C82093 /* AudioToolbox.framework */; };
 		9B69EC421BC05B9E000EF102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B69EC411BC05B9E000EF102 /* AppDelegate.swift */; };
 		9B69EC441BC05B9E000EF102 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B69EC431BC05B9E000EF102 /* ViewController.swift */; };
 		9B69EC471BC05B9E000EF102 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B69EC451BC05B9E000EF102 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		7EF69B801BC0A71300030663 /* h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = h.png; path = Jolt/h.png; sourceTree = "<group>"; };
+		9B05275C1BC1151000C82093 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9B69EC3E1BC05B9E000EF102 /* Jolt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jolt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B69EC411BC05B9E000EF102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B69EC431BC05B9E000EF102 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B05275D1BC1151000C82093 /* AudioToolbox.framework in Frameworks */,
 				9B69EC721BC05D79000EF102 /* CoreBluetooth.framework in Frameworks */,
 				9B69EC701BC05D5D000EF102 /* MicrosoftBandKit_iOS.framework in Frameworks */,
 			);
@@ -105,6 +108,7 @@
 		9B69EC351BC05B9E000EF102 = {
 			isa = PBXGroup;
 			children = (
+				9B05275C1BC1151000C82093 /* AudioToolbox.framework */,
 				7EF69B801BC0A71300030663 /* h.png */,
 				9B69EC741BC064B5000EF102 /* BandKitInterface.h */,
 				9B69EC751BC064B5000EF102 /* BandKitInterface.m */,

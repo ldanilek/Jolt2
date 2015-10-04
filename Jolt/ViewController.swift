@@ -140,10 +140,10 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                         self.heartrateLabel.text = "\(rate)"
                         let currentDate = NSDate()
                         print("Heart rate detected \(rate)")
-                        if rate < 70 && currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
+                        if currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
                             let (avg, std) = self.calculateAverageAndStandardDeviation()
                             let testValue = self.average(self.fiveRatesForCompare)
-                            if testValue < 0.9*avg && (avg-std) > testValue && self.dataPoints.count > 20 {
+                            if (avg-std) > testValue && self.dataPoints.count > 3 {
                                 self.sendNotification(nil)
                                 self.lastAlert = currentDate
                             }

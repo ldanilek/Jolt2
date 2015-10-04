@@ -43,9 +43,6 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 self.startHeartrateUpdates()
             case .NotSpecified:
                 self.client?.sensorManager.requestHRUserConsentWithCompletion({ (requestedConsent, error) -> Void in
-                    if let e = error {
-                        //self.statusLabel.text = "error \(e.description)"
-                    }
                     if requestedConsent {
                         self.startHeartrateUpdates()
                     } else {

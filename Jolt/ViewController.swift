@@ -20,6 +20,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     var fiveRatesForCompare: Array<Int> = []
     var lastMoved = NSDate(timeIntervalSince1970: 0);
     @IBOutlet weak var status_sleep: UILabel!
+    @IBOutlet weak var moving: UILabel!
 
     override func viewDidLoad() {
         MSBClientManager.sharedManager().delegate = self
@@ -132,6 +133,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 }
                 else
                 {
+                    self.moving.text = "Still"
                     self.fiveRatesForCompare.append(Int(rate))
                     if self.fiveRatesForCompare.count > 5 {
                         self.fiveRatesForCompare = Array(self.fiveRatesForCompare.dropFirst())
@@ -206,6 +208,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
             gyroUpdating = true
         }
         do {
+               self.moving.text = "Moving"
             try self.client?.sensorManager.startGyroscopeUpdatesToQueue(NSOperationQueue(), withHandler: { (gyroscopeData, error) -> Void in
                 let newX = gyroscopeData.x
                 let newY = gyroscopeData.y

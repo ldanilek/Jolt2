@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EF69B811BC0A71300030663 /* h.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EF69B801BC0A71300030663 /* h.png */; };
 		9B69EC421BC05B9E000EF102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B69EC411BC05B9E000EF102 /* AppDelegate.swift */; };
 		9B69EC441BC05B9E000EF102 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B69EC431BC05B9E000EF102 /* ViewController.swift */; };
 		9B69EC471BC05B9E000EF102 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B69EC451BC05B9E000EF102 /* Main.storyboard */; };
@@ -14,12 +15,12 @@
 		9B69EC4C1BC05B9E000EF102 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B69EC4A1BC05B9E000EF102 /* LaunchScreen.storyboard */; };
 		9B69EC571BC05B9F000EF102 /* JoltTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B69EC561BC05B9F000EF102 /* JoltTests.swift */; };
 		9B69EC621BC05B9F000EF102 /* JoltUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B69EC611BC05B9F000EF102 /* JoltUITests.swift */; };
-		9B69EC701BC05D5D000EF102 /* MicrosoftBandKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B69EC6F1BC05D5D000EF102 /* MicrosoftBandKit_iOS.framework */; settings = {ASSET_TAGS = (); }; };
+		9B69EC701BC05D5D000EF102 /* MicrosoftBandKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B69EC6F1BC05D5D000EF102 /* MicrosoftBandKit_iOS.framework */; };
 		9B69EC721BC05D79000EF102 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B69EC711BC05D79000EF102 /* CoreBluetooth.framework */; };
-		9B69EC761BC064B5000EF102 /* BandKitInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69EC751BC064B5000EF102 /* BandKitInterface.m */; settings = {ASSET_TAGS = (); }; };
-		9B89AD3F1BC075EF004F65F3 /* jolt-46.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD3E1BC075EF004F65F3 /* jolt-46.png */; settings = {ASSET_TAGS = (); }; };
-		9B89AD411BC075F6004F65F3 /* Jot-2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD401BC075F6004F65F3 /* Jot-2.svg */; settings = {ASSET_TAGS = (); }; };
-		9B89AD431BC07649004F65F3 /* Jolt-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD421BC07649004F65F3 /* Jolt-24.png */; settings = {ASSET_TAGS = (); }; };
+		9B69EC761BC064B5000EF102 /* BandKitInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69EC751BC064B5000EF102 /* BandKitInterface.m */; };
+		9B89AD3F1BC075EF004F65F3 /* jolt-46.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD3E1BC075EF004F65F3 /* jolt-46.png */; };
+		9B89AD411BC075F6004F65F3 /* Jot-2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD401BC075F6004F65F3 /* Jot-2.svg */; };
+		9B89AD431BC07649004F65F3 /* Jolt-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD421BC07649004F65F3 /* Jolt-24.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7EF69B801BC0A71300030663 /* h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = h.png; path = ../../../h.png; sourceTree = "<group>"; };
 		9B69EC3E1BC05B9E000EF102 /* Jolt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jolt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B69EC411BC05B9E000EF102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B69EC431BC05B9E000EF102 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		9B69EC351BC05B9E000EF102 = {
 			isa = PBXGroup;
 			children = (
+				7EF69B801BC0A71300030663 /* h.png */,
 				9B69EC741BC064B5000EF102 /* BandKitInterface.h */,
 				9B69EC751BC064B5000EF102 /* BandKitInterface.m */,
 				9B69EC6F1BC05D5D000EF102 /* MicrosoftBandKit_iOS.framework */,
@@ -257,6 +260,7 @@
 				9B69EC4C1BC05B9E000EF102 /* LaunchScreen.storyboard in Resources */,
 				9B89AD411BC075F6004F65F3 /* Jot-2.svg in Resources */,
 				9B69EC491BC05B9E000EF102 /* Assets.xcassets in Resources */,
+				7EF69B811BC0A71300030663 /* h.png in Resources */,
 				9B89AD3F1BC075EF004F65F3 /* jolt-46.png in Resources */,
 				9B89AD431BC07649004F65F3 /* Jolt-24.png in Resources */,
 				9B69EC471BC05B9E000EF102 /* Main.storyboard in Resources */,

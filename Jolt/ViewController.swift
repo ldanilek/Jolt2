@@ -18,6 +18,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     var dataPoints: Array<Double> = []
     var fiveRates: Array<Int> = []
     var lastMoved = NSDate(timeIntervalSince1970: 0);
+    @IBOutlet weak var status_sleep: UILabel!
 
     override func viewDidLoad() {
         MSBClientManager.sharedManager().delegate = self
@@ -78,6 +79,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     }
     
     func startHeartrateUpdates() {
+        status_sleep = "awake"
         if self.heartRateUpdating {
             return
         }

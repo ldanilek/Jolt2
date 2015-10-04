@@ -191,6 +191,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 print("except \(e) \(error)")
             }
             */
+            self.performSegueWithIdentifier(rooster, sender: nil)
             status_sleep.text = "asleep"
             self.client?.notificationManager.vibrateWithType(MSBNotificationVibrationType.Alarm, completionHandler: { (e) -> Void in
                 

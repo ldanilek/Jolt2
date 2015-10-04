@@ -9,7 +9,7 @@
 import UIKit
 import CoreBluetooth
 
-class ViewController: UIViewController, MSBClientManagerDelegate {
+class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileDelegate {
     
     var client: MSBClient?
     var heartRateUpdating: Bool = false
@@ -140,7 +140,8 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                         if self.fiveRatesForCompare.count > 5 {
                             self.fiveRatesForCompare = Array(self.fiveRatesForCompare.dropFirst())
                         }
-                        //var quality = heartRateData.quality
+                        let quality = heartRateData.quality
+                        print("quality: \(quality)")
                         NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                             self.moving.text = "Still"
                             self.heartrateLabel.text = "\(rate)"
@@ -243,7 +244,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 
             })
             
-            let id = NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
+            let id = NSUUID()//NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
             e = "here"
             let img = UIImage(named: "jolt-46-3.png")
             e = "who?"
@@ -251,12 +252,37 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
             e = "there"
             let smallImage = try MSBIcon(UIImage: UIImage(named: "Jolt-24-3.png"))
             e = "everywhere"
-            let tileName = "Notification"
+            let tileName = "Jolt"
             
             let tile = try MSBTile(id: id, name: tileName, tileIcon: image, smallIcon: smallImage)
             e = "wtf?"
             
+            let panel = MSBPageFlowPanel(rect: MSBPageRect(x: 0, y: 0, width: 245, height: 102))
+            panel.horizontalAlignment = MSBPageHorizontalAlignment.Left
+            panel.verticalAlignment = MSBPageVerticalAlignment.Top
+            let textButton = MSBPageTextButton(rect: MSBPageRect(x: 0, y: 0, width: 245, height: 102))
+            textButton.elementId = 1;
+            textButton.margins = MSBPageMargins(left: 15, top: 0, right: 15, bottom: 0)
+            textButton.pressedColor = MSBColor(red: 0xFF, green: 0xFF, blue: 0xFF)
+            panel.addElement(textButton)
+            let layout = MSBPageLayout()
+            // create the page layout
+            layout.root = panel;
+            tile.pageLayouts.addObject(layout)
+            
             client?.tileManager.addTile(tile, completionHandler: { (a) -> Void in})
+            client?.tileDelegate = self
+            
+            let buttonPageId = NSUUID()
+            do {
+                let textButtonData = try MSBPageTextButtonData(elementId: 1, text: "Awake Now")
+                let pageData = MSBPageData(id: buttonPageId, layoutIndex: 0, value: [textButtonData])
+                self.client?.tileManager.setPages([pageData], tileId: id, completionHandler: { (err) -> Void in
+                
+                })
+            } catch {
+                print("error making button data \(error)")
+            }
             
         } catch {
             print("except \(e) \(error)")
@@ -273,6 +299,18 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     func clientManager(clientManager: MSBClientManager!, clientDidDisconnect client: MSBClient!) {
         //self.statusLabel.text = "did disconnect"
         self.heartRateUpdating = false
+    }
+    
+    func client(client: MSBClient!, tileDidClose event: MSBTileEvent!) {
+        print("tile closed")
+    }
+    
+    func client(client: MSBClient!, buttonDidPress event: MSBTileButtonEvent!) {
+        
+    }
+    
+    func client(client: MSBClient!, tileDidOpen event: MSBTileEvent!) {
+        print("tile opened")
     }
     
     @IBOutlet weak var heartrateLabel: UILabel!

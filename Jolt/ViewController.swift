@@ -167,8 +167,13 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                                 let (avg, std) = self.calculateAverageAndStandardDeviation()
                                 let testValue = self.average(self.fiveRatesForCompare)
                                 let stdevs = self.highPriority ? 1.0 : 2.0;
-                                let percentageCutoff = self.highPriority ? 0.85 : 0.8
-                                if (avg - std * stdevs) > testValue && percentageCutoff*avg > testValue && self.dataPoints.count > 3 {
+                                var addMe = Float(currentDate.timeIntervalSinceDate(self.lastMoved))
+                                addMe = addMe * 0.0001
+                                let percentageCutoff = self.highPriority ? (addMe + 0.85) : (addMe + 0.8)
+                                
+                                print("percentage cutoff : \(percentageCutoff)")
+                                
+                                if (avg - std * stdevs) > testValue && percentageCutoff*Float(avg) > Float(testValue) && self.dataPoints.count > 3 {
                                     print("asleep!!! value is \(testValue), avg is \(avg), std is \(std)")
                                     self.sendVisualNotification()
                                     self.sendNotification(nil)

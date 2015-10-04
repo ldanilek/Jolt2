@@ -117,6 +117,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 let currentTime = NSDate()
                 if currentTime.timeIntervalSinceDate(self.lastMoved) < 10 {
                     self.status_sleep.text = "awake"
+                    self.performSegueWithIdentifier(rooster, sender: nil) //set to button plz
                     self.fiveRates.append(Int(rate))
                     print("store awake data \(rate)")
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in

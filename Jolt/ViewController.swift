@@ -125,22 +125,25 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                     if (self.fiveRates.count > 4) {
                         let avg = self.average(self.fiveRates)
                         self.storeData(avg)
-                        self.fiveRatesForCompare = self.fiveRates
                         self.fiveRates = []
                     }
                     
                 }
                 else
                 {
+                    self.fiveRatesForCompare.append(Int(rate))
+                    if self.fiveRatesForCompare.count > 5 {
+                        self.fiveRatesForCompare = Array(self.fiveRatesForCompare.dropFirst())
+                    }
                     //var quality = heartRateData.quality
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                         self.heartrateLabel.text = "\(rate)"
                         let currentDate = NSDate()
                         print("Heart rate detected \(rate)")
-                        if rate < 70 && currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
+                        if currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
                             let (avg, std) = self.calculateAverageAndStandardDeviation()
                             let testValue = self.average(self.fiveRatesForCompare)
-                            if avg - testValue > 8 && (avg-std) > testValue && self.dataPoints.count > 100 {
+                            if (avg-std) > testValue && self.dataPoints.count > 3 {
                                 self.sendNotification(nil)
                                 self.lastAlert = currentDate
                             }

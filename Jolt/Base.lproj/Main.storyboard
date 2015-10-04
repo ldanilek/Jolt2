@@ -193,8 +193,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WS-Xf-ZFp">
-                                <rect key="frame" x="176" y="232" width="146" height="48"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="jolt-word-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="pzF-vy-VrC">
+                                <rect key="frame" x="239" y="42" width="123" height="81"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="Rdj-Ve-InC"/>
+                                    <constraint firstAttribute="height" constant="81" id="msg-92-6X2"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RR-yl-BuA">
+                                <rect key="frame" x="189" y="143" width="97" height="59"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asleep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzP-hT-s3J">
+                                <rect key="frame" x="294" y="143" width="147" height="59"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                                <color key="textColor" red="0.1137254902" green="0.21176470589999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WS-Xf-ZFp">
+                                <rect key="frame" x="224" y="242" width="150" height="48"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.19215686274509802" green="0.35686274509803922" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
@@ -206,28 +228,6 @@
                                     <action selector="turnOff:" destination="Ayq-9W-Hkw" eventType="touchUpInside" id="Hhk-Ya-lz9"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="jolt-word-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="pzF-vy-VrC">
-                                <rect key="frame" x="239" y="42" width="123" height="81"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="123" id="Rdj-Ve-InC"/>
-                                    <constraint firstAttribute="height" constant="81" id="msg-92-6X2"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="I am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RR-yl-BuA">
-                                <rect key="frame" x="189" y="143" width="97" height="59"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="asleep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzP-hT-s3J">
-                                <rect key="frame" x="294" y="143" width="147" height="59"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
-                                <color key="textColor" red="0.1137254902" green="0.21176470589999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.75686274509803919" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -235,10 +235,11 @@
                             <constraint firstItem="WzP-hT-s3J" firstAttribute="leading" secondItem="4RR-yl-BuA" secondAttribute="trailing" constant="8" id="5NK-WU-dl5"/>
                             <constraint firstItem="WzP-hT-s3J" firstAttribute="top" secondItem="pzF-vy-VrC" secondAttribute="bottom" constant="20" id="5qz-u0-Bhd"/>
                             <constraint firstItem="4RR-yl-BuA" firstAttribute="top" secondItem="pzF-vy-VrC" secondAttribute="bottom" constant="20" id="DK8-3X-wXA"/>
+                            <constraint firstItem="pzF-vy-VrC" firstAttribute="leading" secondItem="4RR-yl-BuA" secondAttribute="trailing" constant="-47" id="UqJ-HY-6p0"/>
                             <constraint firstAttribute="centerX" secondItem="pzF-vy-VrC" secondAttribute="centerX" id="WVq-Ly-Rwl"/>
                             <constraint firstItem="pzF-vy-VrC" firstAttribute="top" secondItem="JBm-a2-h2c" secondAttribute="bottom" constant="22" id="dvf-lA-XTK"/>
-                            <constraint firstItem="9WS-Xf-ZFp" firstAttribute="top" secondItem="pzF-vy-VrC" secondAttribute="bottom" constant="109" id="qP9-gl-bAi"/>
-                            <constraint firstAttribute="centerX" secondItem="9WS-Xf-ZFp" secondAttribute="centerX" id="wpx-Gq-FAw"/>
+                            <constraint firstItem="9WS-Xf-ZFp" firstAttribute="top" secondItem="pzF-vy-VrC" secondAttribute="bottom" constant="119" id="fcz-3V-DWT"/>
+                            <constraint firstAttribute="centerX" secondItem="9WS-Xf-ZFp" secondAttribute="centerX" constant="1" id="pit-5m-ODl"/>
                         </constraints>
                     </view>
                     <connections>

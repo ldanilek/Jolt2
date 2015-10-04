@@ -69,7 +69,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
         }
         var retval: Double
         retval = Double(sum)
-        return (retval/5)
+        return retval / Double(array.count)
     }
     
     func storeData(point : Double) {
@@ -145,6 +145,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                             let (avg, std) = self.calculateAverageAndStandardDeviation()
                             let testValue = self.average(self.fiveRatesForCompare)
                             if (avg-std) > testValue && self.dataPoints.count > 3 {
+                                print("asleep!!! value is \(testValue), avg is \(avg), std is \(std)")
                                 self.sendNotification(nil)
                                 self.lastAlert = currentDate
                             }

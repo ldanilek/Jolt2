@@ -117,7 +117,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 let currentTime = NSDate()
                 if currentTime.timeIntervalSinceDate(self.lastMoved) < 10 {
                     self.status_sleep.text = "awake"
-                    self.performSegueWithIdentifier(rooster, sender: nil) //set to button plz
+                    self.dismissViewControllerAnimated(true, completion: nil) //set to button plz
                     self.fiveRates.append(Int(rate))
                     print("store awake data \(rate)")
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
@@ -192,7 +192,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 print("except \(e) \(error)")
             }
             */
-            self.performSegueWithIdentifier(rooster, sender: nil)
+            self.performSegueWithIdentifier("rooster", sender: nil)
             status_sleep.text = "asleep"
             self.client?.notificationManager.vibrateWithType(MSBNotificationVibrationType.Alarm, completionHandler: { (e) -> Void in
                 

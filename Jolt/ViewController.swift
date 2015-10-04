@@ -54,6 +54,29 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
             }
         }
         self.startGyroSensing()
+        //send a tile
+        var e = "none"
+        do {
+        let id = NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
+        e = "here"
+        let image = try MSBIcon(UIImage: UIImage(contentsOfFile: "jolt-46.png"))
+        e = "there"
+        let smallImage = try MSBIcon(UIImage: UIImage(contentsOfFile: "Jolt-24.png"))
+        e = "everywhere"
+        let tileName = "Notification"
+        
+        let tile = try MSBTile(id: id, name: tileName, tileIcon: image, smallIcon: smallImage)
+        e = "wtf?"
+        
+        client?.tileManager.addTile(tile, completionHandler: { (a) -> Void in})
+        
+        client?.notificationManager.sendMessageWithTileID(id, title: tileName, body: "Testing a notification", timeStamp: NSDate(), flags: MSBNotificationMessageFlags.ShowDialog, completionHandler: { (a) -> Void in
+        
+        })
+        } catch {
+        print("except \(e) \(error)")
+        }
+
     }
     
     @IBOutlet weak var statusLabel: UILabel!
@@ -183,28 +206,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
 
     @IBAction func sendNotification(sender: UIButton?) {
         if (client?.isDeviceConnected == true) {
-            /*var e = "none"
-            do {
-                let id = NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
-                e = "here"
-                let image = try MSBIcon(UIImage: UIImage(contentsOfFile: "jolt-46.png"))
-                e = "there"
-                let smallImage = try MSBIcon(UIImage: UIImage(contentsOfFile: "Jolt-24.png"))
-                e = "everywhere"
-                var tileName = "Notification"
-              
-                let tile = try MSBTile(id: id, name: tileName, tileIcon: image, smallIcon: smallImage)
-                e = "wtf?"
-              
-                client?.tileManager.addTile(tile, completionHandler: { (a) -> Void in})
-                
-                client?.notificationManager.sendMessageWithTileID(id, title: tileName, body: "Testing a notification", timeStamp: NSDate(), flags: MSBNotificationMessageFlags.ShowDialog, completionHandler: { (a) -> Void in
-                    
-                })
-            } catch {
-                print("except \(e) \(error)")
-            }
-            */
+          
             self.performSegueWithIdentifier("rooster", sender: nil)
             status_sleep.text = "asleep"
             self.client?.notificationManager.vibrateWithType(MSBNotificationVibrationType.Alarm, completionHandler: { (e) -> Void in

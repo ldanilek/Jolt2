@@ -140,7 +140,8 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                         if self.fiveRatesForCompare.count > 5 {
                             self.fiveRatesForCompare = Array(self.fiveRatesForCompare.dropFirst())
                         }
-                        //var quality = heartRateData.quality
+                        let quality = heartRateData.quality
+                        print("quality: \(quality)")
                         NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                             self.moving.text = "Still"
                             self.heartrateLabel.text = "\(rate)"

@@ -136,28 +136,31 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                     }
                     else
                     {
-                        self.fiveRatesForCompare.append(Int(rate))
-                        if self.fiveRatesForCompare.count > 5 {
-                            self.fiveRatesForCompare = Array(self.fiveRatesForCompare.dropFirst())
-                        }
                         let quality = heartRateData.quality
-                        print("quality: \(quality)")
-                        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                            self.moving.text = "Still"
-                            self.heartrateLabel.text = "\(rate)"
-                            let currentDate = NSDate()
-                            print("Heart rate detected \(rate)")
-                            if currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
-                                let (avg, std) = self.calculateAverageAndStandardDeviation()
-                                let testValue = self.average(self.fiveRatesForCompare)
-                                if (avg-std) > testValue && self.dataPoints.count > 3 {
-                                    print("asleep!!! value is \(testValue), avg is \(avg), std is \(std)")
-                                    self.sendNotification(nil)
-                                    self.lastAlert = currentDate
-                                }
+                        
+                        if quality == MSBSensorHeartRateQuality.Locked {
+                            self.fiveRatesForCompare.append(Int(rate))
+                            if self.fiveRatesForCompare.count > 5 {
+                                self.fiveRatesForCompare = Array(self.fiveRatesForCompare.dropFirst())
                             }
                             
-                        })
+                            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                                self.moving.text = "Still"
+                                self.heartrateLabel.text = "\(rate)"
+                                let currentDate = NSDate()
+                                print("Heart rate detected \(rate)")
+                                if currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
+                                    let (avg, std) = self.calculateAverageAndStandardDeviation()
+                                    let testValue = self.average(self.fiveRatesForCompare)
+                                    if (avg-std) > testValue && self.dataPoints.count > 3 {
+                                        print("asleep!!! value is \(testValue), avg is \(avg), std is \(std)")
+                                        self.sendNotification(nil)
+                                        self.lastAlert = currentDate
+                                    }
+                                }
+                                
+                            })
+                        }
                     }
                 } else {
                     if NSDate().timeIntervalSinceDate(self.lastAlert) > 3 {

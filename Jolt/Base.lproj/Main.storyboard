@@ -215,10 +215,13 @@
                                 <color key="textColor" red="0.1137254902" green="0.21176470589999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WS-Xf-ZFp">
-                                <rect key="frame" x="224" y="242" width="150" height="48"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WS-Xf-ZFp">
+                                <rect key="frame" x="225" y="242" width="150" height="48"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.19215686274509802" green="0.35686274509803922" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="I3w-8g-Kyc"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Turn Off">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -239,7 +242,7 @@
                             <constraint firstAttribute="centerX" secondItem="pzF-vy-VrC" secondAttribute="centerX" id="WVq-Ly-Rwl"/>
                             <constraint firstItem="pzF-vy-VrC" firstAttribute="top" secondItem="JBm-a2-h2c" secondAttribute="bottom" constant="22" id="dvf-lA-XTK"/>
                             <constraint firstItem="9WS-Xf-ZFp" firstAttribute="top" secondItem="pzF-vy-VrC" secondAttribute="bottom" constant="119" id="fcz-3V-DWT"/>
-                            <constraint firstAttribute="centerX" secondItem="9WS-Xf-ZFp" secondAttribute="centerX" constant="1" id="pit-5m-ODl"/>
+                            <constraint firstAttribute="centerX" secondItem="9WS-Xf-ZFp" secondAttribute="centerX" id="pit-5m-ODl"/>
                         </constraints>
                     </view>
                     <connections>

@@ -116,34 +116,32 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 
                 //add the data to our storage
                 let currentTime = NSDate()
-                if
-                    currentTime.timeIntervalSinceDate(self.lastMoved) > 2 {
+                if currentTime.timeIntervalSinceDate(self.lastMoved) > 2 {
                     self.moving.text = "Still"
                 }
-                if currentTime.timeIntervalSinceDate(self.lastMoved) < 10 {
-                    self.status_sleep.text = "awake"
-                    self.fiveRates.append(Int(rate))
-                    print("store awake data \(rate)")
-                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                        self.heartrateLabel.text = "\(rate)"
-                    })
-                    if (self.fiveRates.count > 4) {
-                        let avg = self.average(self.fiveRates)
-                        self.storeData(avg)
-                        self.fiveRates = []
+                if self.presentedViewController == nil {
+                    if currentTime.timeIntervalSinceDate(self.lastMoved) < 10 {
+                        self.status_sleep.text = "awake"
+                        self.fiveRates.append(Int(rate))
+                        print("store awake data \(rate)")
+                        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                            self.heartrateLabel.text = "\(rate)"
+                        })
+                        if (self.fiveRates.count > 4) {
+                            let avg = self.average(self.fiveRates)
+                            self.storeData(avg)
+                            self.fiveRates = []
+                        }
                     }
-                }
-                else
-                {
-                    self.moving.text = "Still"
-                    self.fiveRatesForCompare.append(Int(rate))
-                    if self.fiveRatesForCompare.count > 5 {
-                        self.fiveRatesForCompare = Array(self.fiveRatesForCompare.dropFirst())
-                    }
-                    //var quality = heartRateData.quality
-                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                        if self.presentedViewController == nil {
-                            
+                    else
+                    {
+                        self.moving.text = "Still"
+                        self.fiveRatesForCompare.append(Int(rate))
+                        if self.fiveRatesForCompare.count > 5 {
+                            self.fiveRatesForCompare = Array(self.fiveRatesForCompare.dropFirst())
+                        }
+                        //var quality = heartRateData.quality
+                        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                             self.heartrateLabel.text = "\(rate)"
                             let currentDate = NSDate()
                             print("Heart rate detected \(rate)")
@@ -156,15 +154,16 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                                     self.lastAlert = currentDate
                                 }
                             }
-                        } else {
-                            if NSDate().timeIntervalSinceDate(self.lastAlert) > 3 {
-                                self.sendNotification(nil)
-                                self.lastAlert = NSDate()
-                            }
-                        }
-
-                    })
+                            
+                        })
+                    }
+                } else {
+                    if NSDate().timeIntervalSinceDate(self.lastAlert) > 3 {
+                        self.sendNotification(nil)
+                        self.lastAlert = NSDate()
+                    }
                 }
+                
             })
         } catch {
             heartRateUpdating = false

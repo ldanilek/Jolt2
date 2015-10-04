@@ -16,7 +16,7 @@ class RoosterViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.turnOffButton.layer.cornerRadius = 5
+        self.turnOffButton.layer.cornerRadius = 20
         // Do any additional setup after loading the view.
     }
 

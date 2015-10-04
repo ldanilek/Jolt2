@@ -169,7 +169,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                                 let stdevs = self.highPriority ? 1.0 : 2.0;
                                 var addMe = Float(currentDate.timeIntervalSinceDate(self.lastMoved))
                                 addMe = addMe * 0.0001
-                                let percentageCutoff = self.highPriority ? (addMe + 0.85) : (addMe + 0.8)
+                                let percentageCutoff = self.highPriority ? (addMe + 0.8) : (addMe + 0.75)
                                 
                                 print("percentage cutoff : \(percentageCutoff)")
                                 

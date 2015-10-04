@@ -121,7 +121,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                     self.moving.text = "Still"
                 }
                 if currentTime.timeIntervalSinceDate(self.lastMoved) < 10 {
-                    self.status_sleep.text = "awake"
+                
                     self.dismissViewControllerAnimated(true, completion: nil) //set to button plz
                     self.fiveRates.append(Int(rate))
                     print("store awake data \(rate)")
@@ -133,7 +133,6 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                         self.storeData(avg)
                         self.fiveRates = []
                     }
-                    
                 }
                 else
                 {

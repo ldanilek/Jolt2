@@ -243,7 +243,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                 
             })
             
-            let id = NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
+            let id = NSUUID()//NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
             e = "here"
             let img = UIImage(named: "jolt-46-3.png")
             e = "who?"
@@ -251,7 +251,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
             e = "there"
             let smallImage = try MSBIcon(UIImage: UIImage(named: "Jolt-24-3.png"))
             e = "everywhere"
-            let tileName = "Notification"
+            let tileName = "Jolt"
             
             let tile = try MSBTile(id: id, name: tileName, tileIcon: image, smallIcon: smallImage)
             e = "wtf?"

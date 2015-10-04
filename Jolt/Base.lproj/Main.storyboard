@@ -74,14 +74,22 @@
                                 <color key="textColor" red="0.35294117650000001" green="0.65490196079999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" image="jolt-word.png" translatesAutoresizingMaskIntoConstraints="NO" id="TlH-iy-GZP">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="jolt-word.png" translatesAutoresizingMaskIntoConstraints="NO" id="TlH-iy-GZP">
                                 <rect key="frame" x="57" y="11" width="173" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="173" id="MFT-Ab-GHa"/>
+                                    <constraint firstAttribute="height" constant="81" id="xHR-R7-Sp7"/>
+                                </constraints>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" image="h.png" translatesAutoresizingMaskIntoConstraints="NO" id="A03-O0-4wT">
                                 <rect key="frame" x="64" y="235" width="62" height="53"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.1137254902" green="0.21176470589999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.23991935483870969" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="62" id="82m-o0-b2E"/>
+                                    <constraint firstAttribute="height" constant="53" id="joF-ee-aKf"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <animations/>

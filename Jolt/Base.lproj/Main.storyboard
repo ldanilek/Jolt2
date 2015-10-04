@@ -160,7 +160,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WS-Xf-ZFp">
-                                <rect key="frame" x="61" y="146" width="128" height="48"/>
+                                <rect key="frame" x="65" y="146" width="128" height="48"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.19215686274509802" green="0.35686274509803922" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
@@ -168,6 +168,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="turnOff:" destination="Ayq-9W-Hkw" eventType="touchUpInside" id="Hhk-Ya-lz9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -182,6 +185,9 @@
                             <constraint firstItem="4RR-yl-BuA" firstAttribute="leading" secondItem="iXt-cd-Sul" secondAttribute="leadingMargin" constant="13" id="xgh-if-p5u"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="turnOffButton" destination="9WS-Xf-ZFp" id="OdN-Z3-Qzf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1RR-OU-MAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

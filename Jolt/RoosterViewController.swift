@@ -10,9 +10,13 @@ import UIKit
 
 class RoosterViewController: UIViewController {
 
+    @IBOutlet weak var turnOffButton: UIButton!
+    @IBAction func turnOff(sender: UIButton) {
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.turnOffButton.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
 

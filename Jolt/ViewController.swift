@@ -21,7 +21,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     var lastMoved = NSDate(timeIntervalSince1970: 0);
     @IBOutlet weak var status_sleep: UILabel!
     @IBOutlet weak var moving: UILabel!
-
+    
     override func viewDidLoad() {
         MSBClientManager.sharedManager().delegate = self
         if let attachedClient = MSBClientManager.sharedManager().attachedClients().first as? MSBClient {
@@ -54,45 +54,12 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
             }
         }
         self.startGyroSensing()
-        //send a tile
-        var e = "none"
-        do {
-            client?.tileManager.tilesWithCompletionHandler({ (tiles, error) -> Void in
-                if error == true {
-                    //handle error
-                }
-                print("printing all tiles")
-                for t in tiles {
-                    let tile = t as! MSBTile
-                    print("tileName : \(tile.name)")
-                }
-                
-            })
-
-        let id = NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
-        e = "here"
-        let image = try MSBIcon(UIImage: UIImage(contentsOfFile: "jolt-46.png"))
-        e = "there"
-        let smallImage = try MSBIcon(UIImage: UIImage(contentsOfFile: "Jolt-24.png"))
-        e = "everywhere"
-        let tileName = "Notification"
         
-        let tile = try MSBTile(id: id, name: tileName, tileIcon: image, smallIcon: smallImage)
-        e = "wtf?"
         
-        client?.tileManager.addTile(tile, completionHandler: { (a) -> Void in})
-        
-        client?.notificationManager.sendMessageWithTileID(id, title: tileName, body: "Testing a notification", timeStamp: NSDate(), flags: MSBNotificationMessageFlags.ShowDialog, completionHandler: { (a) -> Void in
-        
-        })
-        } catch {
-        print("except \(e) \(error)")
-        }
-
     }
     
     @IBOutlet weak var statusLabel: UILabel!
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -215,10 +182,10 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
         }
         
     }
-
+    
     @IBAction func sendNotification(sender: UIButton?) {
         if (client?.isDeviceConnected == true) {
-          
+            
             self.performSegueWithIdentifier("rooster", sender: nil)
             status_sleep.text = "asleep"
             self.client?.notificationManager.vibrateWithType(MSBNotificationVibrationType.Alarm, completionHandler: { (e) -> Void in
@@ -253,16 +220,57 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
         self.heartRateUpdating = false
     }
     
+    func addTile() {
+        //send a tile
+        var e = "none"
+        do {
+            client?.tileManager.tilesWithCompletionHandler({ (tiles, error) -> Void in
+                if let e = error {
+                    print("error is \(e)")
+                    //handle error
+                }
+                print("printing all tiles")
+                for t in tiles {
+                    let tile = t as! MSBTile
+                    print("tileName : \(tile.name)")
+                }
+                
+            })
+            
+            let id = NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
+            e = "here"
+            let img = UIImage(named: "jolt-46.png")
+            e = "who?"
+            let image = try MSBIcon(UIImage: img)
+            e = "there"
+            let smallImage = try MSBIcon(UIImage: UIImage(named: "Jolt-24.png"))
+            e = "everywhere"
+            let tileName = "Notification"
+            
+            let tile = try MSBTile(id: id, name: tileName, tileIcon: image, smallIcon: smallImage)
+            e = "wtf?"
+            
+            client?.tileManager.addTile(tile, completionHandler: { (a) -> Void in})
+            
+            client?.notificationManager.sendMessageWithTileID(id, title: tileName, body: "Testing a notification", timeStamp: NSDate(), flags: MSBNotificationMessageFlags.ShowDialog, completionHandler: { (a) -> Void in
+                
+            })
+        } catch {
+            print("except \(e) \(error)")
+        }
+    }
+    
     func clientManager(clientManager: MSBClientManager!, clientDidConnect client: MSBClient!) {
         self.statusLabel.text = "did connect"
         self.startHeartrateUpdates()
         self.startGyroSensing()
+        self.addTile()
     }
     
     func clientManager(clientManager: MSBClientManager!, clientDidDisconnect client: MSBClient!) {
         self.statusLabel.text = "did disconnect"
         self.heartRateUpdating = false
     }
-
+    
     @IBOutlet weak var heartrateLabel: UILabel!
 }

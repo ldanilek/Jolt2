@@ -24,6 +24,8 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
     @IBOutlet weak var moving: UILabel!
     var showingRooster = false
     
+    var tileId: NSUUID?
+    
     var highPriority: Bool = NSUserDefaults.standardUserDefaults().boolForKey("priority") {
         didSet {
             NSUserDefaults.standardUserDefaults().setBool(highPriority, forKey: "priority")
@@ -164,9 +166,10 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                                 let (avg, std) = self.calculateAverageAndStandardDeviation()
                                 let testValue = self.average(self.fiveRatesForCompare)
                                 let stdevs = self.highPriority ? 1.0 : 2.0;
-                                let percentageCutoff = 0.9*avg
-                                if (avg - std * stdevs) > testValue && percentageCutoff > testValue && self.dataPoints.count > 3 {
+                                let percentageCutoff = self.highPriority ? 0.85 : 0.8
+                                if (avg - std * stdevs) > testValue && percentageCutoff*avg > testValue && self.dataPoints.count > 3 {
                                     print("asleep!!! value is \(testValue), avg is \(avg), std is \(std)")
+                                    self.sendVisualNotification()
                                     self.sendNotification(nil)
                                     self.lastAlert = currentDate
                                 }
@@ -199,6 +202,15 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
             print("Unexpected exception")
         }
         
+    }
+    
+    func sendVisualNotification() {
+        // only gets called once
+        if let id = tileId {
+            self.client?.notificationManager.sendMessageWithTileID(id, title: "Wake Up!", body: "You fell asleep", timeStamp: NSDate(), flags: MSBNotificationMessageFlags.ShowDialog, completionHandler: { (err) -> Void in
+                
+            })
+        }
     }
     
     @IBAction func sendNotification(sender: UIButton?) {
@@ -269,7 +281,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                 
             })
             
-            let id = NSUUID()//NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
+            tileId = NSUUID()//NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
             e = "here"
             let img = UIImage(named: "jolt-46-3.png")
             e = "who?"
@@ -279,7 +291,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
             e = "everywhere"
             let tileName = "Jolt"
             
-            let tile = try MSBTile(id: id, name: tileName, tileIcon: image, smallIcon: smallImage)
+            let tile = try MSBTile(id: tileId!, name: tileName, tileIcon: image, smallIcon: smallImage)
             e = "wtf?"
             
             let panel = MSBPageFlowPanel(rect: MSBPageRect(x: 0, y: 0, width: 243, height: 102))
@@ -303,7 +315,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
             do {
                 let textButtonData = try MSBPageTextButtonData(elementId: 1, text: "Awake Now")
                 let pageData = MSBPageData(id: buttonPageId, layoutIndex: 0, value: [textButtonData])
-                self.client?.tileManager.setPages([pageData], tileId: id, completionHandler: { (err) -> Void in
+                self.client?.tileManager.setPages([pageData], tileId: tileId!, completionHandler: { (err) -> Void in
                     
                 })
             } catch {

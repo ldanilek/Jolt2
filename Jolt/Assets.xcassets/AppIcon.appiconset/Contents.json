@@ -3,37 +3,37 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "jolt-logo-29.png",
+      "filename" : "jolt-logo-29x2.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "jolt-logo-30.png",
+      "filename" : "jolt-logo-29x3.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "jolt-logo-40.png",
+      "filename" : "jolt-logo-40x2.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "jolt-logo-41.png",
+      "filename" : "jolt-logo-60x2.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "jolt-logo-60.png",
+      "filename" : "jolt-logo-60x2-1.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "jolt-logo-61.png",
+      "filename" : "jolt-logo-60x3.png",
       "scale" : "3x"
     },
     {
@@ -45,7 +45,7 @@
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "jolt-logo-32.png",
+      "filename" : "jolt-logo-29x2-1.png",
       "scale" : "2x"
     },
     {
@@ -57,7 +57,7 @@
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "jolt-logo-43.png",
+      "filename" : "jolt-logo-40x2-1.png",
       "scale" : "2x"
     },
     {
@@ -69,7 +69,7 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "jolt-logo-77.png",
+      "filename" : "jolt-logo-76x2.png",
       "scale" : "2x"
     }
   ],

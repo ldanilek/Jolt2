@@ -37,18 +37,19 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
         if let theconsent = consent {
             switch theconsent {
             case .Declined:
-                self.statusLabel.text = "heartrate consent declined"
+                break
+                //self.statusLabel.text = "heartrate consent declined"
             case .Granted:
                 self.startHeartrateUpdates()
             case .NotSpecified:
                 self.client?.sensorManager.requestHRUserConsentWithCompletion({ (requestedConsent, error) -> Void in
                     if let e = error {
-                        self.statusLabel.text = "error \(e.description)"
+                        //self.statusLabel.text = "error \(e.description)"
                     }
                     if requestedConsent {
                         self.startHeartrateUpdates()
                     } else {
-                        self.statusLabel.text = "heartrate requested, declined"
+                        //self.statusLabel.text = "heartrate requested, declined"
                     }
                 })
             }
@@ -58,7 +59,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
         
     }
     
-    @IBOutlet weak var statusLabel: UILabel!
+    //@IBOutlet weak var statusLabel: UILabel!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -216,7 +217,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     }
     
     func clientManager(clientManager: MSBClientManager!, client: MSBClient!, didFailToConnectWithError error: NSError!) {
-        self.statusLabel.text = "connection failed"
+        //self.statusLabel.text = "connection failed"
         self.heartRateUpdating = false
     }
     
@@ -261,14 +262,14 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     }
     
     func clientManager(clientManager: MSBClientManager!, clientDidConnect client: MSBClient!) {
-        self.statusLabel.text = "did connect"
+        //self.statusLabel.text = "did connect"
         self.startHeartrateUpdates()
         self.startGyroSensing()
         self.addTile()
     }
     
     func clientManager(clientManager: MSBClientManager!, clientDidDisconnect client: MSBClient!) {
-        self.statusLabel.text = "did disconnect"
+        //self.statusLabel.text = "did disconnect"
         self.heartRateUpdating = false
     }
     

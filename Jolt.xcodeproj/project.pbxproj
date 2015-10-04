@@ -23,6 +23,7 @@
 		9B89AD411BC075F6004F65F3 /* Jot-2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD401BC075F6004F65F3 /* Jot-2.svg */; };
 		9B89AD431BC07649004F65F3 /* Jolt-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD421BC07649004F65F3 /* Jolt-24.png */; };
 		9B89AD451BC0D57F004F65F3 /* jolt-word.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD441BC0D57F004F65F3 /* jolt-word.png */; settings = {ASSET_TAGS = (); }; };
+		9B89AD471BC0D8B4004F65F3 /* jolt-word-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD461BC0D8B4004F65F3 /* jolt-word-black.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		9B89AD401BC075F6004F65F3 /* Jot-2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Jot-2.svg"; sourceTree = "<group>"; };
 		9B89AD421BC07649004F65F3 /* Jolt-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jolt-24.png"; sourceTree = "<group>"; };
 		9B89AD441BC0D57F004F65F3 /* jolt-word.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jolt-word.png"; sourceTree = "<group>"; };
+		9B89AD461BC0D8B4004F65F3 /* jolt-word-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jolt-word-black.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				9B89AD3E1BC075EF004F65F3 /* jolt-46.png */,
 				9B89AD401BC075F6004F65F3 /* Jot-2.svg */,
 				9B89AD421BC07649004F65F3 /* Jolt-24.png */,
+				9B89AD461BC0D8B4004F65F3 /* jolt-word-black.png */,
 				9B89AD441BC0D57F004F65F3 /* jolt-word.png */,
 			);
 			path = Jolt;
@@ -265,6 +268,7 @@
 			files = (
 				9B69EC4C1BC05B9E000EF102 /* LaunchScreen.storyboard in Resources */,
 				9B89AD411BC075F6004F65F3 /* Jot-2.svg in Resources */,
+				9B89AD471BC0D8B4004F65F3 /* jolt-word-black.png in Resources */,
 				9B89AD451BC0D57F004F65F3 /* jolt-word.png in Resources */,
 				9B69EC491BC05B9E000EF102 /* Assets.xcassets in Resources */,
 				7EF69B811BC0A71300030663 /* h.png in Resources */,

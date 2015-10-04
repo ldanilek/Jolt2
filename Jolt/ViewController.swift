@@ -79,7 +79,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     }
     
     func startHeartrateUpdates() {
-        status_sleep = "awake"
+        status_sleep.text = "awake"
         if self.heartRateUpdating {
             return
         }

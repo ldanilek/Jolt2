@@ -237,11 +237,11 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
             
             let id = NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
             e = "here"
-            let img = UIImage(named: "jolt-46.png")
+            let img = UIImage(named: "jolt-46-2.png")
             e = "who?"
             let image = try MSBIcon(UIImage: img)
             e = "there"
-            let smallImage = try MSBIcon(UIImage: UIImage(named: "Jolt-24.png"))
+            let smallImage = try MSBIcon(UIImage: UIImage(named: "Jolt-24-2.png"))
             e = "everywhere"
             let tileName = "Notification"
             

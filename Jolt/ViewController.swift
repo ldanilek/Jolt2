@@ -135,13 +135,13 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                     }
                     else
                     {
-                        self.moving.text = "Still"
                         self.fiveRatesForCompare.append(Int(rate))
                         if self.fiveRatesForCompare.count > 5 {
                             self.fiveRatesForCompare = Array(self.fiveRatesForCompare.dropFirst())
                         }
                         //var quality = heartRateData.quality
                         NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                            self.moving.text = "Still"
                             self.heartrateLabel.text = "\(rate)"
                             let currentDate = NSDate()
                             print("Heart rate detected \(rate)")

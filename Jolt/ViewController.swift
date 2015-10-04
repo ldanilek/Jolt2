@@ -21,6 +21,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     var lastMoved = NSDate(timeIntervalSince1970: 0);
     @IBOutlet weak var status_sleep: UILabel!
     @IBOutlet weak var moving: UILabel!
+    var showingRooster = false
     
     override func viewDidLoad() {
         MSBClientManager.sharedManager().delegate = self
@@ -52,7 +53,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
             }
         }
         self.startGyroSensing()
-        
+        self.showingRooster = false
         
     }
     
@@ -119,7 +120,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 if currentTime.timeIntervalSinceDate(self.lastMoved) > 2 {
                     self.moving.text = "Still"
                 }
-                if self.presentedViewController == nil {
+                if !self.showingRooster {
                     if currentTime.timeIntervalSinceDate(self.lastMoved) < 10 {
                         self.status_sleep.text = "awake"
                         self.fiveRates.append(Int(rate))
@@ -185,8 +186,9 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     
     @IBAction func sendNotification(sender: UIButton?) {
         if client?.isDeviceConnected == true {
-            if self.presentedViewController == nil {
+            if !showingRooster {
                 self.performSegueWithIdentifier("rooster", sender: nil)
+                showingRooster = true
             }
             status_sleep.text = "asleep"
             self.client?.notificationManager.vibrateWithType(MSBNotificationVibrationType.Alarm, completionHandler: { (e) -> Void in

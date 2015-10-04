@@ -116,6 +116,10 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                 
                 //add the data to our storage
                 let currentTime = NSDate()
+                if
+                    currentTime.timeIntervalSinceDate(self.lastMoved) > 2 {
+                    self.moving.text = "Still"
+                }
                 if currentTime.timeIntervalSinceDate(self.lastMoved) < 10 {
                     self.status_sleep.text = "awake"
                     self.dismissViewControllerAnimated(true, completion: nil) //set to button plz

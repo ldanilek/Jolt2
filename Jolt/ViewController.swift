@@ -17,6 +17,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     var lastAlert = NSDate(timeIntervalSince1970: 0);
     var dataPoints: Array<Double> = []
     var fiveRates: Array<Int> = []
+    var fiveRatesForCompare: Array<Int> = []
     var lastMoved = NSDate(timeIntervalSince1970: 0);
     @IBOutlet weak var status_sleep: UILabel!
 
@@ -117,8 +118,10 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                     if (self.fiveRates.count > 4) {
                         let avg = self.average(self.fiveRates)
                         self.storeData(avg)
+                        self.fiveRatesForCompare = self.fiveRates
                         self.fiveRates = []
                     }
+                    
                 }
                 else
                 {
@@ -128,8 +131,12 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                         let currentDate = NSDate()
                         print("Heart rate detected \(rate)")
                         if rate < 70 && currentDate.timeIntervalSinceDate(self.lastAlert) > 20 {
-                            self.sendNotification(nil)
-                            self.lastAlert = currentDate
+                            let (avg, std) = self.calculateAverageAndStandardDeviation()
+                            let testValue = self.average(self.fiveRatesForCompare)
+                            if avg - testValue > 8 && (avg-std) > testValue {
+                                self.sendNotification(nil)
+                                self.lastAlert = currentDate
+                            }
                         }
                     })
                 }

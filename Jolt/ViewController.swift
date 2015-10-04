@@ -121,8 +121,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
                     self.moving.text = "Still"
                 }
                 if currentTime.timeIntervalSinceDate(self.lastMoved) < 10 {
-                
-                    self.dismissViewControllerAnimated(true, completion: nil) //set to button plz
+                    self.status_sleep.text = "awake"
                     self.fiveRates.append(Int(rate))
                     print("store awake data \(rate)")
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in

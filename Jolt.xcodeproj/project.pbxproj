@@ -41,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7EF69B801BC0A71300030663 /* h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = h.png; path = ../../../h.png; sourceTree = "<group>"; };
+		7EF69B801BC0A71300030663 /* h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = h.png; path = Jolt/h.png; sourceTree = "<group>"; };
 		9B69EC3E1BC05B9E000EF102 /* Jolt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jolt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B69EC411BC05B9E000EF102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B69EC431BC05B9E000EF102 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };

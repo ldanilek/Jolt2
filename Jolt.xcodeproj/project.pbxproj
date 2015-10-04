@@ -18,14 +18,14 @@
 		9B69EC701BC05D5D000EF102 /* MicrosoftBandKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B69EC6F1BC05D5D000EF102 /* MicrosoftBandKit_iOS.framework */; };
 		9B69EC721BC05D79000EF102 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B69EC711BC05D79000EF102 /* CoreBluetooth.framework */; };
 		9B69EC761BC064B5000EF102 /* BandKitInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69EC751BC064B5000EF102 /* BandKitInterface.m */; };
-		9B69EC781BC0C7BB000EF102 /* RoosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B69EC771BC0C7BB000EF102 /* RoosterViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		9B69EC781BC0C7BB000EF102 /* RoosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B69EC771BC0C7BB000EF102 /* RoosterViewController.swift */; };
 		9B89AD3F1BC075EF004F65F3 /* jolt-46.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD3E1BC075EF004F65F3 /* jolt-46.png */; };
 		9B89AD411BC075F6004F65F3 /* Jot-2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD401BC075F6004F65F3 /* Jot-2.svg */; };
 		9B89AD431BC07649004F65F3 /* Jolt-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD421BC07649004F65F3 /* Jolt-24.png */; };
-		9B89AD451BC0D57F004F65F3 /* jolt-word.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD441BC0D57F004F65F3 /* jolt-word.png */; settings = {ASSET_TAGS = (); }; };
-		9B89AD471BC0D8B4004F65F3 /* jolt-word-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD461BC0D8B4004F65F3 /* jolt-word-black.png */; settings = {ASSET_TAGS = (); }; };
-		9B89AD4D1BC0F666004F65F3 /* jolt-46-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD4C1BC0F666004F65F3 /* jolt-46-3.png */; settings = {ASSET_TAGS = (); }; };
-		9B89AD4F1BC0F66D004F65F3 /* Jolt-24-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD4E1BC0F66D004F65F3 /* Jolt-24-3.png */; settings = {ASSET_TAGS = (); }; };
+		9B89AD451BC0D57F004F65F3 /* jolt-word.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD441BC0D57F004F65F3 /* jolt-word.png */; };
+		9B89AD471BC0D8B4004F65F3 /* jolt-word-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD461BC0D8B4004F65F3 /* jolt-word-black.png */; };
+		9B89AD4D1BC0F666004F65F3 /* jolt-46-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD4C1BC0F666004F65F3 /* jolt-46-3.png */; };
+		9B89AD4F1BC0F66D004F65F3 /* Jolt-24-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B89AD4E1BC0F66D004F65F3 /* Jolt-24-3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */

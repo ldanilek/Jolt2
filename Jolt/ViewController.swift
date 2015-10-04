@@ -57,6 +57,18 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
         //send a tile
         var e = "none"
         do {
+            client?.tileManager.tilesWithCompletionHandler({ (tiles, error) -> Void in
+                if error == true {
+                    //handle error
+                }
+                print("printing all tiles")
+                for t in tiles {
+                    let tile = t as! MSBTile
+                    print("tileName : \(tile.name)")
+                }
+                
+            })
+
         let id = NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
         e = "here"
         let image = try MSBIcon(UIImage: UIImage(contentsOfFile: "jolt-46.png"))

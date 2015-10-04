@@ -25,6 +25,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
     var showingRooster = false
     
     var tileId: NSUUID?
+    var tile: MSBTile!
     
     var highPriority: Bool = NSUserDefaults.standardUserDefaults().boolForKey("priority") {
         didSet {
@@ -208,12 +209,15 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
         // only gets called once
         if let id = tileId {
             self.client?.notificationManager.sendMessageWithTileID(id, title: "Wake Up!", body: "You fell asleep", timeStamp: NSDate(), flags: MSBNotificationMessageFlags.ShowDialog, completionHandler: { (err) -> Void in
-                
+                print("tile notification error \(err)")
             })
         }
     }
     
     @IBAction func sendNotification(sender: UIButton?) {
+        if sender != nil {
+            self.sendVisualNotification()
+        }
         if client?.isDeviceConnected == true {
             if !showingRooster {
                 self.performSegueWithIdentifier("rooster", sender: nil)
@@ -281,7 +285,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
                 
             })
             
-            tileId = NSUUID()//NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BB")
+            tileId = NSUUID(UUIDString: "DCBABA9F-12FD-47A5-83A9-E7270A4399BA")
             e = "here"
             let img = UIImage(named: "jolt-46-3.png")
             e = "who?"
@@ -307,6 +311,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate, MSBClientTileD
             // create the page layout
             layout.root = panel;
             tile.pageLayouts.addObject(layout)
+            self.tile = tile
             
             client?.tileManager.addTile(tile, completionHandler: { (a) -> Void in})
             client?.tileDelegate = self
